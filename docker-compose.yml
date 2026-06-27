@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  odysseus:
+    image: ghcr.io/pewdiepie-archdaemon/odysseus:latest
+    container_name: odysseus
+    restart: unless-stopped
+    ports:
+      - "7000:7000"
+    volumes:
+      - odysseus-data:/app/data
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  odysseus-data:
