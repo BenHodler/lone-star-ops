@@ -1,0 +1,26 @@
+#!/bin/bash
+# lone-star-ops: .git-hooks/pre-commit
+# Prevents accidental commits of .env files and other secrets
+# Install with: cp .git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+FORBIDDEN_PATTERNS=(
+  ".env"
+  "*.key"
+  "*.pem"
+  "*.crt"
+  "secrets/"
+)
+
+echo "[LSO] Running pre-commit hook..."
+
+for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
+  if git diff --cached --name-only | grep -E "^$pattern" >/dev/null; then
+    echo "  ❌ ERROR: Attempted to commit sensitive file matching '$pattern'"
+    echo "  Add to .gitignore or remove from staging:"
+    git diff --cached --name-only | grep -E "^$pattern"
+    exit 1
+  fi
+done
+
+echo "  ✓ Pre-commit check passed"
+exit 0
