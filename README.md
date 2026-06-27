@@ -1,8 +1,8 @@
-# 🤠 Lone Star Ops
+<img width="624" height="524" alt="lone-star-ops-logo" src="https://github.com/user-attachments/assets/95ddab50-6790-4884-b919-fcc2def7ca2f" />
 
 **A self-hosted homelab deployment kit for local-first AI, networking, and automation.**
 
-Built and maintained by Kyle Stanton — San Antonio, TX.  
+Built and maintained by Lone Star Operations in Texas.  
 No subscriptions. No cloud dependency. Your hardware, your data.
 
 ---
