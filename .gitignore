@@ -1,0 +1,24 @@
+# Lone Star Ops — .gitignore
+# Never commit secrets or local state
+
+# Environment files with real values
+.env
+*.env.local
+
+# Keys and certs
+*.key
+*.pem
+*.crt
+secrets/
+
+# Docker volumes and local data
+data/
+volumes/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
